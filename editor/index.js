@@ -4,6 +4,8 @@ const editor = CodeMirror.fromTextArea(
     mode: 'javascript',
     lineNumbers: true,
     tabSize: 2,
+    styleActiveLine: true,
+    theme: 'solarized light',
   }
 )
 const canvas = document.getElementById("canvas").contentWindow.document
@@ -11,14 +13,13 @@ const runner = document.getElementById("runner")
 
 const editorTemplate =
 `function setup() {
-  createCanvas(400, 400);
-  background(220);
+  createCanvas(windowWidth, windowHeight);
+  background("white");
 }
 
 function draw() {
 
-}
-`
+}`
 
 const canvasTemplate = code => `
 <meta charset="utf-8">
@@ -42,6 +43,8 @@ function compile() {
 function main() {
   editor.setValue(editorTemplate)
   runner.addEventListener("click", compile)
+
+  compile()
 }
 
 main()
