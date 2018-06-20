@@ -6,6 +6,7 @@ const editor = CodeMirror.fromTextArea(
     tabSize: 2,
     styleActiveLine: true,
     theme: 'solarized light',
+    autoCloseBrackets: true,
   }
 )
 const canvas = document.getElementById("canvas").contentWindow.document
