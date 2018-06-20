@@ -14,7 +14,7 @@ const runner = document.getElementById("runner")
 const editorTemplate =
 `function setup() {
   createCanvas(windowWidth, windowHeight);
-  background("white");
+  background("lightgray");
 }
 
 function draw() {
@@ -36,7 +36,7 @@ const canvasTemplate = code => `
 
 function compile() {
   canvas.open()
-  canvas.writeln(canvasTemplate(editor.getValue()))
+  canvas.write(canvasTemplate(editor.getValue()))
   canvas.close()
 }
 

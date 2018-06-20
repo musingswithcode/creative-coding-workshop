@@ -50,12 +50,3 @@ button {
   left: calc(50% - 50px);
   z-index: 999;
 }
-.dim {
-  opacity: 1;
-  transition: opacity .15s ease-in;
-}
-.dim:hover,
-.dim:focus {
-  opacity: .5;
-  transition: opacity .15s ease-in;
-}
