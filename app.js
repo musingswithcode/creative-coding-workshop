@@ -58,9 +58,9 @@ const previewTemplate = code => `
 <meta charset="utf-8">
 <style>body { margin: 0; padding: 0}</style>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
+<script src="./libraries/p5.min.js"></script>
+<script src="./libraries/p5.dom.min.js"></script>
+<script src="./libraries/p5.sound.min.js"></script>
 
 <script>
   ${code}
