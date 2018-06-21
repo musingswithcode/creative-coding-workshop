@@ -1,5 +1,25 @@
-const editor = CodeMirror.fromTextArea(
-  document.getElementById("editor"),
+// Helpers
+
+function qs(selector, element = document) {
+  return element.querySelector(selector)
+}
+function qsa(selector, element = document) {
+  return element.querySelectorAll(selector)
+}
+function addClass(element, classString) {
+  element.classList.add(...classString.split(" "))
+}
+function removeClass(element, classString) {
+  element.classList.remove(...classString.split(" "))
+}
+function replaceClass(element, fromClassString, toClassString) {
+  addClass(element, toClassString)
+  removeClass(element, fromClassString)
+}
+
+// Setup codemirror
+const codeMirror = CodeMirror.fromTextArea(
+  qs("#editor"),
   {
     mode: 'javascript',
     lineNumbers: true,
@@ -9,11 +29,20 @@ const editor = CodeMirror.fromTextArea(
     autoCloseBrackets: true,
   }
 )
-const preview = document.getElementById("preview")
-const runner = document.getElementById("runner")
-const examples = Array.from(document.querySelectorAll(".example-image"))
+
+const $gallery     = qs("#gallery")
+const $playground  = qs("#playground")
+const $editor      = qs(".CodeMirror")
+const $preview     = qs("#preview")
+const $controls    = qs("#controls")
+const $runner      = qs("#runner")
+const $zenMode     = qs("#zenmode")
+const $examples    = Array.from(qsa(".example-image"))
 
 let currentExample = null
+let isZenMode = false
+
+addClass($editor, "code f5 fl w-100 vh-50")
 
 const editorTemplate =
 `function setup() {
@@ -39,37 +68,67 @@ const previewTemplate = code => `
 `
 
 function compile() {
-  const source = previewTemplate(editor.getValue())
-  preview.setAttribute('srcdoc', source)
+  const source = previewTemplate(codeMirror.getValue())
+  $preview.setAttribute('srcdoc', source)
+  codeMirror.focus()
 }
 
 function main() {
   // Set the editor text to the default template and compile.
-  editor.setValue(editorTemplate)
+  codeMirror.setValue(editorTemplate)
   compile()
 
   // Run by either clicking the run button ...
-  runner.addEventListener("click", compile)
+  $runner.addEventListener("click", compile)
   // ... or pressing ⌘ + Enter in the editor.
-  editor.addKeyMap({
+  codeMirror.addKeyMap({
     "Cmd-Enter": compile,
   })
 
-  examples.forEach(function(example) {
+  // On clicking any of the example images ...
+  $examples.forEach(function(example) {
     example.addEventListener("click", function(event) {
+      // ... toggle the "ba" (border) class
       if (currentExample) {
-        currentExample.classList.remove("ba")
+        removeClass(currentExample, "ba")
       }
-
       currentExample = example
-      currentExample.classList.add("ba")
+      addClass(currentExample, "ba")
 
+      // ... get the source code of the example and compile it.
       const path = `./examples/${example.dataset.src}.js`
       fetch(path)
         .then(data => data.text())
-        .then(code => editor.setValue(code))
+        .then(code => codeMirror.setValue(code))
         .then(compile)
     })
+  })
+
+  // On clicking the zen mode button ...
+  $zenMode.addEventListener("click", function() {
+    if (!isZenMode) {
+      addClass($gallery, "dn")
+      replaceClass($playground, "w-50", "w-100")
+      replaceClass($editor, "f5 w-100 vh-50", "f4 w-50 vh-100")
+      replaceClass($preview, "w-100 vh-50", "w-50 vh-100")
+      $controls.style.left = "25%"
+      $controls.style.marginLeft = "-179px"
+      $controls.style.bottom = "50px"
+      $zenMode.innerHTML = "&larr; Back to Gallery"
+    } else {
+      removeClass($gallery, "dn")
+      replaceClass($playground, "w-100", "w-50")
+      replaceClass($editor, "f4 w-50 vh-100", "f5 w-100 vh-50")
+      replaceClass($preview, "w-50 vh-100", "w-100 vh-50")
+      $controls.style.left = "50%"
+      $controls.style.marginLeft = "-138px"
+      $controls.style.bottom = "calc(50% + 10px)"
+      $zenMode.innerHTML = "Zen mode"
+    }
+
+    isZenMode = !isZenMode
+
+    compile()
   })
 }
 

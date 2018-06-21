@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Creative Coding Workshop</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <!-- Tachyons -->
-    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
     <!-- CodeMirror -->
     <script src="./libraries/codemirror.js"></script>
     <script src="./libraries/codemirror-js-mode.js"></script>
@@ -14,12 +12,8 @@
     <script src="./libraries/codemirror-close-brackets.js"></script>
     <link rel="stylesheet" href="./libraries/codemirror.css">
     <link rel="stylesheet" href="./libraries/codemirror-solarized.css">
-    <style media="screen">
-      .CodeMirror {
-        font-family: Consolas, monaco, monospace;
-        height: 50vh;
-      }
-    </style>
+    <!-- Tachyons -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
     <!-- Processing -->
     <script src="./libraries/p5.min.js"></script>
     <script src="./libraries/p5.dom.min.js"></script>
@@ -27,7 +21,7 @@
   </head>
   <body class="code dark-gray">
     <main class="cf">
-      <section class="fl w-50 vh-100 overflow-scroll bg-light-gray">
+      <section id="gallery" class="fl w-50 vh-100 overflow-scroll bg-light-gray">
         <section class="bg-light-green pa4 vh-50">
           <div class="pre lh-copy overflow-hidden">
 /**
@@ -76,18 +70,26 @@
           </div>
         </section>
       </section>
-      <section class="fl w-50 vh-100 bg-light-gray">
+      <section id="playground" class="fl w-50 vh-100 bg-light-gray relative">
         <textarea
           id="editor"
           class="fl w-100 vh-50">
         </textarea>
-        <button
-          id="runner"
-          class="f6 link dim ph3 pv2 mb2 dib white bg-hot-pink pointer absolute z-max"
-          style="top: calc(50% - 50px); right: 16px"
-          type="button">
-            Run (⌘ + Enter)
-        </button>
+        <!-- class="absolute z-max" style="top:calc(50% - 50px); right:10px;" -->
+        <div id="controls" class="absolute z-max" style="left: 50%; margin-left: -138px; bottom: calc(50% + 10px);">
+          <button
+            id="runner"
+            class="f6 link dim ph3 pv2 dib white bg-hot-pink pointer"
+            type="button">
+              Run (⌘ + Enter)
+          </button>
+          <button
+            id="zenmode"
+            class="f6 link dim ph3 pv2 dib white bg-hot-pink pointer"
+            type="button">
+              Zen mode
+          </button>
+        </div>
         <iframe
           id="preview"
           class="fl w-100 vh-50 bn"
