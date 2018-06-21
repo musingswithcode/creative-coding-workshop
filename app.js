@@ -27,6 +27,7 @@ const codeMirror = CodeMirror.fromTextArea(
     styleActiveLine: true,
     theme: 'solarized light',
     autoCloseBrackets: true,
+    lint: true,
   }
 )
 
