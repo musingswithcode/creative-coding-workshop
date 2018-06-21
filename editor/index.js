@@ -9,7 +9,7 @@ const editor = CodeMirror.fromTextArea(
     autoCloseBrackets: true,
   }
 )
-const canvas = document.getElementById("canvas").contentWindow.document
+const canvas = document.getElementById("canvas")
 const runner = document.getElementById("runner")
 
 const editorTemplate =
@@ -36,9 +36,8 @@ const canvasTemplate = code => `
 `
 
 function compile() {
-  canvas.open()
-  canvas.write(canvasTemplate(editor.getValue()))
-  canvas.close()
+  const source = canvasTemplate(editor.getValue())
+  canvas.setAttribute('srcdoc', source)
 }
 
 function main() {
