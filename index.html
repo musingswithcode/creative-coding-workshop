@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creative Coding Workshop</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Tachyons -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+    <!-- CodeMirror -->
+    <script src="./libraries/codemirror.js"></script>
+    <script src="./libraries/codemirror-js-mode.js"></script>
+    <script src="./libraries/codemirror-active-line.js"></script>
+    <script src="./libraries/codemirror-close-brackets.js"></script>
+    <link rel="stylesheet" href="./libraries/codemirror.css">
+    <link rel="stylesheet" href="./libraries/codemirror-solarized.css">
+    <style media="screen">
+      .CodeMirror {
+        font-family: Consolas, monaco, monospace;
+        height: 50vh;
+      }
+    </style>
+    <!-- Processing -->
+    <script src="./libraries/p5.min.js"></script>
+    <script src="./libraries/p5.dom.min.js"></script>
+    <script src="./libraries/p5.sound.min.js"></script>
+  </head>
+  <body class="code dark-gray">
+    <main class="cf">
+      <section class="fl w-50 vh-100 overflow-scroll bg-light-gray">
+        <section class="bg-light-green pa4 vh-50">
+          <div class="pre lh-copy overflow-hidden">
+/**
+ * Creative Coding with p5.js
+ *
+ * “For many decades, computers have been more than enhanced
+ *  calculators. They’re media machines, they’re imagination
+ *  engines, computers are tools for thought, and they’re
+ *  design machines. Computers are a unique and emerging
+ *  medium for the visual arts.” — Casey Reas
+ *
+ */
+          </div>
+        </section>
+        <section class="bg-light-blue pa4">
+          <div class="pre lh-copy overflow-hidden">
+// DRAWING
+// Making shapes.
+          </div>
+          <div class="cf">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="001" src="./examples/001.png">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="002" src="./examples/002.png">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="003" src="./examples/003.png">
+          </div>
+        </section>
+        <section class="bg-light-red pa4">
+          <div class="pre lh-copy overflow-hidden">
+// INTERACTION
+// Adding behavior.
+          </div>
+          <div class="cf">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="001" src="./examples/001.png">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="002" src="./examples/002.png">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="003" src="./examples/003.png">
+          </div>
+        </section>
+        <section class="bg-light-yellow pa4">
+          <div class="pre lh-copy overflow-hidden">
+// ANIMATION
+// Making things move.
+          </div>
+          <div class="cf">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="001" src="./examples/001.png">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="002" src="./examples/002.png">
+            <img class="fl w-third pa2 dim pointer border-box example-image" data-src="003" src="./examples/003.png">
+          </div>
+        </section>
+      </section>
+      <section class="fl w-50 vh-100 bg-light-gray">
+        <textarea
+          id="editor"
+          class="fl w-100 vh-50">
+        </textarea>
+        <button
+          id="runner"
+          class="f6 link dim ph3 pv2 mb2 dib white bg-hot-pink pointer absolute z-max"
+          style="top: calc(50% - 50px); right: 16px"
+          type="button">
+            Run (⌘ + Enter)
+        </button>
+        <iframe
+          id="preview"
+          class="fl w-100 vh-50 bn"
+          sandbox="allow-scripts allow-pointer-lock allow-same-origin allow-popups allow-forms allow-modals">
+        </iframe>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
