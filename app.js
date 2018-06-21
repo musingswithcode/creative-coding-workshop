@@ -112,18 +112,12 @@ function main() {
       replaceClass($playground, "w-50", "w-100")
       replaceClass($editor, "f5 w-100 vh-50", "f4 w-50 vh-100")
       replaceClass($preview, "w-100 vh-50", "w-50 vh-100")
-      $controls.style.left = "25%"
-      $controls.style.marginLeft = "-179px"
-      $controls.style.bottom = "50px"
-      $zenMode.innerHTML = "&larr; Back to Gallery"
+      $zenMode.innerHTML = "&larr; Gallery"
     } else {
       removeClass($gallery, "dn")
       replaceClass($playground, "w-100", "w-50")
       replaceClass($editor, "f4 w-50 vh-100", "f5 w-100 vh-50")
       replaceClass($preview, "w-50 vh-100", "w-100 vh-50")
-      $controls.style.left = "50%"
-      $controls.style.marginLeft = "-138px"
-      $controls.style.bottom = "calc(50% + 10px)"
       $zenMode.innerHTML = "Zen mode"
     }
 
