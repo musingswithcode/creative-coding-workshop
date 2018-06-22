@@ -28,6 +28,7 @@ const codeMirror = CodeMirror.fromTextArea(
     theme: 'solarized light',
     autoCloseBrackets: true,
     lint: true,
+    gutters: ["CodeMirror-lint-markers"],
   }
 )
 
