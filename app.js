@@ -25,7 +25,7 @@ const codeMirror = CodeMirror.fromTextArea(
     lineNumbers: true,
     tabSize: 2,
     styleActiveLine: true,
-    theme: 'solarized light',
+    theme: 'solarized dark',
     autoCloseBrackets: true,
     lint: true,
     gutters: ["CodeMirror-lint-markers"],
@@ -96,10 +96,10 @@ function main() {
     example.addEventListener("click", function(event) {
       // ... toggle the "ba" (border) class
       if (currentExample) {
-        removeClass(currentExample, "ba")
+        removeClass(currentExample, "ba b--solarized-base00")
       }
       currentExample = example
-      addClass(currentExample, "ba")
+      addClass(currentExample, "ba b--solarized-base00")
 
       // ... get the source code of the example and compile it.
       const path = `./examples/${example.dataset.src}.js`
