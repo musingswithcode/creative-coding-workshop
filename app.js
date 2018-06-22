@@ -87,7 +87,8 @@ function main() {
   $runner.addEventListener("click", compile)
   // ... or pressing ⌘ + Enter in the editor.
   codeMirror.addKeyMap({
-    "Cmd-Enter": compile,
+    "Cmd-Enter": compile,   // I'm a mac!
+    "Ctrl-Enter": compile,  // I'm a pc!
   })
 
   // On clicking any of the example images ...
