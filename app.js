@@ -116,12 +116,14 @@ function main() {
       replaceClass($playground, "w-50", "w-100")
       replaceClass($editor, "f5 w-100 vh-50", "f4 w-50 vh-100")
       replaceClass($preview, "w-100 vh-50", "w-50 vh-100")
+      $controls.style.right = "50%";
       $zenMode.innerHTML = "&larr; Gallery"
     } else {
       removeClass($gallery, "dn")
       replaceClass($playground, "w-100", "w-50")
       replaceClass($editor, "f4 w-50 vh-100", "f5 w-100 vh-50")
       replaceClass($preview, "w-50 vh-100", "w-100 vh-50")
+      $controls.style.right = "0%";
       $zenMode.innerHTML = "Zen mode"
     }
 
