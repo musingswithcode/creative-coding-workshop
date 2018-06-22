@@ -48,7 +48,7 @@ addClass($editor, "code f5 fl w-100 vh-50")
 
 const editorTemplate =`
 // Edit me!
-// Click the run button or (⌘+Enter) to run.
+// Press ▶ or (⌘ + Enter) to run.
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
