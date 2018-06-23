@@ -1,19 +1,11 @@
-var gridSize = 30;
+// Create a canvas.
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-
-  fill("black");
-  stroke("white");
+  // Create a canvas with a given width and height.
+  createCanvas(600, 400);
 }
 
 function draw() {
-  background("lightgray");
-
-  for (var y = 0; y < height; y += gridSize) {
-    for (var x = 0; x < width; x += gridSize) {
-      ellipse(x, y, 4);
-      line(x, y, mouseX, mouseY);
-    }
-  }
+  // Set a background color to make the canvas visible.
+  background(238, 232, 213);
 }
