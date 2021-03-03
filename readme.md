@@ -1,5 +1,6 @@
-Creating Coding with p5.js.
+### Creating Coding with p5.js.
 
-Workshop material and interactive playground. See [ajithranka.com/creative-coding-workshop](https://ajithranka.com/creative-coding-workshop).
+Workshop material and interactive playground. See [musingswithcode.studio/creative-coding-workshop](https://musingswithcode.studio/creative-coding-workshop).
 
 ![teaser](teaser.png)
+
